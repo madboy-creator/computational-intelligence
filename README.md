@@ -84,27 +84,33 @@ Five methods were run and compared: boxplots with the IQR rule, Z-scores (|z| > 
 
 **Correlation matrix.** `TotalSchoolsInstalled` and `InstalledTDDs` correlate at 1.00 (the redundancy found in preprocessing). The count features correlate at 0.80 to 0.89.
 
-![Correlation matrix](images/01_correlation_heatmap.png)
+<img width="698" height="581" alt="01_correlation_heatmap" src="https://github.com/user-attachments/assets/9e6bb125-434b-4ca0-afc7-120030049931" />
+
 
 **Boxplots (anomaly detection).** Kitui is above the whiskers on `TOTALSCHOOLS`, and Kitui and Makueni are above them on `TotalSchoolsInstalled`. `PercentageInstalled` and `InstalledLDDs` show no outliers, which is why Turkana and Marsabit (low percentage) are invisible to one-column rules.
 
-![Boxplots](images/02_boxplots.png)
+<img width="1589" height="389" alt="02_boxplots" src="https://github.com/user-attachments/assets/2cfdffbd-1902-4572-b3fa-0b6b8b947efc" />
+
 
 **Isolation Forest anomalies in PCA space.**
 
-![Isolation Forest anomalies](images/03_isolation_forest_pca.png)
+<img width="702" height="547" alt="03_isolation_forest_pca" src="https://github.com/user-attachments/assets/e231e647-9eaa-4a72-8455-9ce61e2c6375" />
+
 
 **Choosing k.** The elbow curve is smooth with no clear bend, and silhouette is lowest at k = 5 and highest at k = 8, so k = 3 was chosen for interpretability.
 
-![Elbow and silhouette](images/04_elbow_silhouette.png)
+<img width="986" height="393" alt="04_elbow_silhouette" src="https://github.com/user-attachments/assets/48d4d3aa-a97f-4c09-87ed-cdf022de72cf" />
+
 
 **K-Means clusters (k = 3) in PCA space.** The low-coverage cluster (cyan) sits at the lower left, and Nyeri is the member closest to the main group.
 
-![K-Means clusters](images/05_kmeans_pca.png)
+<img width="683" height="528" alt="05_kmeans_pca" src="https://github.com/user-attachments/assets/7056d1dc-b493-4da0-a9d1-91f27b29b394" />
+
 
 **Dendrogram (Ward linkage).** A group of 12 large counties (Kitui, Kakamega, Makueni and others) splits off first, at height about 12.7. The six northern low-coverage counties (Garissa to Wajir) form their own branch, and Nyeri joins the main group.
 
-![Dendrogram](images/06_dendrogram.png)
+<img width="1389" height="490" alt="06_dendrogram" src="https://github.com/user-attachments/assets/17fe27e9-3cc1-4fc9-b8d2-ea981014b387" />
+
 
 ## ⚠️ Limitations
 
