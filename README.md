@@ -1,4 +1,4 @@
-for Lab 2
+for lab 2 with visual 
 
 # Lab Assignment: Anomaly Detection and Cluster Analysis
 
@@ -80,6 +80,32 @@ Five methods were run and compared: boxplots with the IQR rule, Z-scores (|z| > 
 
 **Interpretation:** the low-coverage group should be prioritized for the remaining installations, with a note that ranking by percentage alone ignores absolute backlog (for example Homa Bay has 323 schools pending and Turkana 321).
 
+## 📈 Visualizations
+
+**Correlation matrix.** `TotalSchoolsInstalled` and `InstalledTDDs` correlate at 1.00 (the redundancy found in preprocessing). The count features correlate at 0.80 to 0.89.
+
+![Correlation matrix](images/01_correlation_heatmap.png)
+
+**Boxplots (anomaly detection).** Kitui is above the whiskers on `TOTALSCHOOLS`, and Kitui and Makueni are above them on `TotalSchoolsInstalled`. `PercentageInstalled` and `InstalledLDDs` show no outliers, which is why Turkana and Marsabit (low percentage) are invisible to one-column rules.
+
+![Boxplots](images/02_boxplots.png)
+
+**Isolation Forest anomalies in PCA space.**
+
+![Isolation Forest anomalies](images/03_isolation_forest_pca.png)
+
+**Choosing k.** The elbow curve is smooth with no clear bend, and silhouette is lowest at k = 5 and highest at k = 8, so k = 3 was chosen for interpretability.
+
+![Elbow and silhouette](images/04_elbow_silhouette.png)
+
+**K-Means clusters (k = 3) in PCA space.** The low-coverage cluster (cyan) sits at the lower left, and Nyeri is the member closest to the main group.
+
+![K-Means clusters](images/05_kmeans_pca.png)
+
+**Dendrogram (Ward linkage).** A group of 12 large counties (Kitui, Kakamega, Makueni and others) splits off first, at height about 12.7. The six northern low-coverage counties (Garissa to Wajir) form their own branch, and Nyeri joins the main group.
+
+![Dendrogram](images/06_dendrogram.png)
+
 ## ⚠️ Limitations
 
 - Only 47 counties, so results are sensitive to individual counties and small clusters can change if one value changes.
@@ -94,4 +120,3 @@ Five methods were run and compared: boxplots with the IQR rule, Z-scores (|z| > 
 2. Place `Country Schools.csv` next to the notebook and change the file path in the first cell (it currently points to a Kaggle input folder).
 3. Run the notebook cells in order, top to bottom.
 
-*Created for the Computing Intelligence module.*
